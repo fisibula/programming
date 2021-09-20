@@ -1,0 +1,28 @@
+Chapter 5
+
+Undertanding Object-oriented terminology
+An object emb     odies a meaningful groupi   ng of characteristics and behaviors. It may be used to describe the blueprints for grouping of like items.
++--------------------+-----------------------+ The grouping of meaningful characteristics
+|       Class        |       Instance        | (attributes) and behaviors (operations) that
++--------------------+-----------------------+ that operate on these attributes, bundled
+|      Student       |A specific student at  | together in a single unit, is known as encapsul-
+|                    |the University of      | ation.
+|                    |Maryland               | In C++, we typically group these items together 
++--------------------+-----------------------+ in a class. 
+|     University     |Temple University in   | Concealing attributes within a class and 
+|                    |Philadelphia, PA, USA  | providing an interface for operating on these 
++--------------------+-----------------------+ details leads us to explore the concept of 
+|        Bank        |The First National Back| information hiding.
+|                    |of Pittsburgh          | Information hiding refers to the process of
++--------------------+-----------------------+ abstracting the details of perfoming an operation into a class method. The implemetation details are hidden within the method. Changing the underlying implemetation method will not change the operation's interface.
+Object-oriented systems are inherently more easily maintained because classes allow upgrades and modifications to be made quickly and without impact to the entire system due to encapsulation and inforamtion hiding.
+
+Understanding class and member function basics
+A C++ class is a fundamental building block in C++ that allows a programmer to specify a user defined type, encapsulating related data and behaviors.
+Creating a variable of a class type is known as instantiation. The attributes in a class are known as data members in C++. Operations in a class are known as member fuctions in C++. The scope resolution operator :: is then used to associate a given member function definition to the class of which it is a member. Dot . or arrow -> notation is used to access all class members, including members fuctions, depending on whether we are accessing members through an instance or through a pointer to an instance.
+A C++ struct can do anything a C++ class can do; in fact; class is implemented in terms of struct in C++.
+Most often a class will be broken into a header (.h) file, which will contain the class definition, and the source code (.cpp) file, which will #include the header file, and then follow with the member fuction definitions themselves.
+
+Examining member function internals; the "this" pointer
+Member functions are invoked through objects. Whenever a member function is invoked in this fashion, that member function receives a pointer to the instance that invokes the function. A pointer to the object calling the function is then passed as an implicit first argument to the function. The name of this pointer is this. Even without its explicit use, the data members utilized in the scope of the function belongs to this, a pointer to the object that invoked the function.
+
