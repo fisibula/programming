@@ -7,6 +7,8 @@ using std::cout;   // preferred to: using namespace std;
 using std::endl;
 using std::string;
 
+// We first define class University; the data members are private, and the three member functions are public. Notice the first two member fuctions prototyped are constructors.
+
 class University
 {
 private:

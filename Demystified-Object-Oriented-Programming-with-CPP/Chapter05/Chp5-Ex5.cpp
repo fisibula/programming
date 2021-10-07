@@ -9,6 +9,7 @@ using std::cout;       // preferred to: using namespace std;
 using std::endl;
 using std::string;
 
+//We start by defining class Student. notice the usual assortment of private data members and public member fuction prototypes, including the default constructor and an overloaded constructor. Also notice the prototype for the copy constructor Student(const Student &);                                                                                             
 class Student
 {
 private: 
@@ -48,7 +49,7 @@ Student::Student(const string &fn, const string &ln, char mi, float avg, const c
     currentCourse = new char [strlen(course) + 1];  // // remember to dynamically allocate the memory for data members that are pointers
     strcpy(currentCourse, course);
 }
-
+ 
 // Copy constructor definition - implements a deep copy
 Student::Student(const Student &s)
 {
@@ -61,6 +62,8 @@ Student::Student(const Student &s)
     // then copy source to destination string
     strcpy(currentCourse, s.currentCourse);
 }
+
+//Notice that the input parameter, s, is a reference to the Student that is const. This means that the source object, which we will be copying from, may not be modified. The destination object, which we will be copying into, will be object pointed to by the this pointer.
 
 // Member function definition
 void Student::CleanUp()
@@ -82,10 +85,12 @@ void Student::SetFirstName(const string &fn)
 }
 
 int main()
-{ 
+{
     // instantiate two Students
     Student s1("Zachary", "Moon", 'R', 3.7, "C++");
     Student s2("Gabrielle", "Doone", 'A', 3.7, "C++");
+
+    //Notice that the signature used in instantiation is how we select which constructor should be implicitly called.
 
     // These initializations implicitly invoke copy constructor
     Student s3(s1);  

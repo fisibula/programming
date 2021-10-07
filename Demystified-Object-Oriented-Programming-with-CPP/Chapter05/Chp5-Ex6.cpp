@@ -11,6 +11,8 @@ using std::string;
 
 class Student;  // forward declaration of Student class
 
+// We first include a forward declaration to class Students; -this declaration allows us to refer to the Student type prior to its definition.
+
 class Employee
 {
 private:

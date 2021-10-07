@@ -26,4 +26,30 @@ Most often a class will be broken into a header (.h) file, which will contain th
 Examining member function internals; the "this" pointer
 Member functions are invoked through objects. Whenever a member function is invoked in this fashion, that member function receives a pointer to the instance that invokes the function. A pointer to the object calling the function is then passed as an implicit first argument to the function. The name of this pointer is this. Even without its explicit use, the data members utilized in the scope of the function belongs to this, a pointer to the object that invoked the function.
 Access region supports encapsulation and information hiding
-A good rule of thumb is to place your data members in the private access region, and then specify a safe, appropriate public interface to them using public member function. With this strategy, the underlying implementation of the class may also be changed without causing any calls to the public interface to change.  
+A good rule of thumb is to place your data members in the private access region, and then specify a safe, appropriate public interface to them using public member function. With this strategy, the underlying implementation of the class may also be changed without causing any calls to the public interface to change.
+
+Understanding constructors:
+Initializing each data member individually each time a class is instantiated can be tedious work. There is a way to ensure that an Initialize() function is called every time a class is instantiated. This premise is the basis for a constructor in c++.
+Constructors are used to initialize the data members that comprise a newly instantiated object. A constructor will have the same name as the class or struct of which it is a member. Constructors may be overloaded, which enables a class to define multiple means by which to initialize an object.
+Constructors have the same name as the class. You may not specify their return type. They can be overloaded. The compiler only creates a public, default constructor if you have not provided any constructor in your class. 
+
+Creating copy constructors
+A copy constructor is an specialized constructor that is invoked whenever a copy of an object may need to be made. The signatire of a copy constructor is ClassName::ClassName(const ClassName &);.
+Should the programmer wish to disallow coping during construction, the keyworld delete can be used in the prototype of the copy constructor as follows:
+
+    // disallow copying during construction
+
+    Student(const Student &) = delete;   // prototype
+
+Creating conversion constructors
+A conversion constructor is a constructor that accepts one explicit argument of a standard or user defined type, and applies a reasonable conversion or transformation on that object to initialize the object being instantiated.
+
+Undertanding destructors
+Conveniently, similar to constructors, C++ has an automatically build-in feature to serve as a clean-up function. This fuction is known as the destructor.
+Applying destructor basics and proper usage: A destructor is a member function whose purpose is relinquish the resources and object may have acquired during its existence.
+A destructor should clean up any memory that may have been allocated by the constructor. The destructor's name is a ~ character followed by the class name.
+In addition to dellocating memory, a destructor may be used to perform other end-of-life tasks for instance, such as logging a value to a database.  
+
+Applying qualifiers to data members and members functions
+The various qualifiers - inline, const, and static can support program efficiency, aid in keeping private dada members safe, support encapsulation and information hiding.
+An inline function is a function whose invocation is substituted with the body of the function itself. 

@@ -77,7 +77,7 @@ int main()
 
     // Error! firstName is private; not accessible in main()
     //cout << s1.firstName << endl;  
-
+    //Because firstName is private, this data member can only be accesssed in the scope of its own class, which means member fuctions of its class.
     // CleanUp() is public, accessible from any scope
     s1.CleanUp(); 
 
